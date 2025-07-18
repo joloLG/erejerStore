@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 let productsData = [];
-let categoriesData = [];
+let categoriesData = {};
 
 async function loadInventoryData() {
     console.log('Loading inventory data from Supabase...');
@@ -254,7 +254,7 @@ function renderProducts(container) {
     console.log('Entering renderProducts function');
     container.innerHTML = ''; // Clear existing content
 
-    for (const categoryName in categories) {
+    for (const categoryName in categoriesData) {
         const category = categories[categoryName];
 
         // Create a container for the category
