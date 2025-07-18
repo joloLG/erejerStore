@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">EREJER\'S STORE</string>
+    <string name="title_activity_main">EREJER\'S STORE</string>
+    <string name="package_name">com.erejer.store</string>
+    <string name="custom_url_scheme">com.erejer.store</string>
+</resources>
