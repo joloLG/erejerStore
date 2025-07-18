@@ -255,7 +255,7 @@ function renderProducts(container) {
     container.innerHTML = ''; // Clear existing content
 
     for (const categoryName in categoriesData) {
-        const category = categories[categoryName];
+        const category = categoriesData[categoryName];
 
         // Create a container for the category
         const categoryDiv = document.createElement('div');
