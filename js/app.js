@@ -8,6 +8,20 @@ const _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 console.log('Supabase client initialized');
 
 document.addEventListener('DOMContentLoaded', async () => {
+    // Sidebar Toggler
+    const sidebarToggle = document.body.querySelector('#sidebarToggle');
+    if (sidebarToggle) {
+        // Uncomment Below to persist sidebar toggle between refreshes
+        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+        //     document.body.classList.toggle('sb-sidenav-toggled');
+        // }
+        sidebarToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('sb-sidenav-toggled');
+            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+        });
+    }
+
     console.log('DOM fully loaded and parsed');
     // Router-like behavior based on page elements
     const productContainer = document.getElementById('product-container');
