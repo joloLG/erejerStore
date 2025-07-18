@@ -181,9 +181,11 @@ async function loadProfitData({ selectedDate, selectedMonth } = {}) {
 
     const targetDate = selectedDate ? new Date(selectedDate + 'T00:00:00') : new Date(now.getFullYear(), now.getMonth(), now.getDate());
     
-    const todayForWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const startOfWeek = new Date(todayForWeek);
-    startOfWeek.setDate(todayForWeek.getDate() - todayForWeek.getDay());
+    const startOfWeek = new Date(targetDate);
+    startOfWeek.setDate(targetDate.getDate() - targetDate.getDay());
+    const endOfWeek = new Date(startOfWeek);
+    endOfWeek.setDate(startOfWeek.getDate() + 6);
+    endOfWeek.setHours(23, 59, 59, 999); // End of Saturday
     const monthPicker = document.getElementById('month-picker');
     if (monthPicker && !selectedMonth) {
         const year = now.getFullYear();
@@ -193,11 +195,11 @@ async function loadProfitData({ selectedDate, selectedMonth } = {}) {
 
     const startOfMonth = selectedMonth 
         ? new Date(selectedMonth + '-01T00:00:00') 
-        : new Date(now.getFullYear(), now.getMonth(), 1);
+        : new Date(targetDate.getFullYear(), targetDate.getMonth(), 1);
 
     const endOfMonth = selectedMonth 
         ? new Date(startOfMonth.getFullYear(), startOfMonth.getMonth() + 1, 1)
-        : new Date(now.getFullYear(), now.getMonth() + 1, 1);
+        : new Date(targetDate.getFullYear(), targetDate.getMonth() + 1, 1);
 
     let profitToday = 0;
     let profitWeek = 0;
@@ -232,7 +234,7 @@ async function loadProfitData({ selectedDate, selectedMonth } = {}) {
             }
         }
 
-        if (saleDate >= startOfWeek) {
+        if (saleDate >= startOfWeek && saleDate <= endOfWeek) {
             profitWeek += sale.total_price;
         }
         if (saleDate >= startOfMonth && saleDate < endOfMonth) {
