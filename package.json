@@ -4,7 +4,8 @@
   "description": "��#\u0000 \u0000e\u0000r\u0000e\u0000j\u0000e\u0000r\u0000S\u0000t\u0000o\u0000r\u0000e\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ionic:build": "echo 'build complete'"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,14 @@
   },
   "homepage": "https://github.com/joloLG/erejerStore#readme",
   "dependencies": {
-    "@capacitor/android": "^7.4.2"
+    "@capacitor/android": "^7.4.2",
+    "@capacitor/app": "7.0.1",
+    "@capacitor/core": "7.4.2",
+    "@capacitor/haptics": "7.0.1",
+    "@capacitor/keyboard": "7.0.1",
+    "@capacitor/status-bar": "7.0.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "7.4.2"
   }
 }

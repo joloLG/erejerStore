@@ -1,12 +1,9 @@
-import { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.erejer.store',
-  appName: 'EREJER\'S STORE',
-  webDir: 'www',
-  server: {
-    androidScheme: 'https'
-  }
+  appId: 'io.ionic.starter',
+  appName: "EREJER'S STORE",
+  webDir: 'www'
 };
 
 export default config;
